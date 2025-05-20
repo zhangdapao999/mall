@@ -1,0 +1,9 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:p6spy:mysql://cd-cynosdbmysql-grp-md3bfi3i.sql.tencentcdb.com:27058/mall?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true
+    username: root
+    password: Lin199368.
