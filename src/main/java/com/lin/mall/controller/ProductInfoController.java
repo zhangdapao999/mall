@@ -2,6 +2,7 @@ package com.lin.mall.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Controller;
  * @author lin
  * @since 2025-05-20
  */
-@Controller
+@RestController
 @RequestMapping("/productInfo")
 public class ProductInfoController {
 
