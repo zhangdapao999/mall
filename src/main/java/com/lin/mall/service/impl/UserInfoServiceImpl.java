@@ -3,6 +3,8 @@ package com.lin.mall.service.impl;
 import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.lin.mall.constant.RedisExpireTime;
+import com.lin.mall.constant.RedisKey;
 import com.lin.mall.entity.UserInfo;
 import com.lin.mall.entity.bo.UserLoginBo;
 import com.lin.mall.entity.bo.UserRegisterBo;
@@ -12,13 +14,17 @@ import com.lin.mall.exception.BusinessException;
 import com.lin.mall.mapper.UserInfoMapper;
 import com.lin.mall.service.IUserInfoService;
 import com.lin.mall.util.MD5Util;
+import com.lin.mall.util.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -35,6 +41,8 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     private String salt;
     @Value("${system.defaultAvatar}")
     private String defaultAvatar;
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Override
     public void register(UserRegisterBo userRegisterBo) {
@@ -97,7 +105,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         }
         // 生成token todo 现阶段用uuid,redis缓存5分钟做过期,后面整合jwt
         String token = UUID.randomUUID().toString();
-
+        redisUtil.set(String.format(RedisKey.USER_TOKEN, userInfo.getId()), token, RedisExpireTime.ONE_HOUR);
         return token;
 
     }

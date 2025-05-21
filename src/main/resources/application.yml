@@ -1,9 +1,23 @@
 # 数据库连接
 spring:
   profiles:
-    active: dev
+    active: prod
+  data:
+    redis:
+      host: 1.14.71.202
+      port: 6379
+      password: Lin199368.
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 2
+
 # 系统配置
 
 system:
   salt: mall
   defaultAvatar: https://b0.bdstatic.com/42ad6512f92cb1e13d7e5c7759d0c8ed.jpg@h_1280
+
