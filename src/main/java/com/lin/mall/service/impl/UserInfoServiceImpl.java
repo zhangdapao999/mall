@@ -42,6 +42,11 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         if (!isExist) {
             throw new BusinessException(ResponseStatusEnum.USERNAME_EXIST);
         }
+
+
+
+
+
     }
 
     @Override

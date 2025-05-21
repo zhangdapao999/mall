@@ -76,6 +76,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>mall</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -93,7 +94,6 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.lin.mall.MallApplication</mainClass>
-                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
