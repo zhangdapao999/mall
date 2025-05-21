@@ -1,16 +1,4 @@
-server:
-  port: 8888
-
 # 数据库连接
 spring:
   profiles:
-    active: dev
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://cd-cynosdbmysql-grp-md3bfi3i.sql.tencentcdb.com:27058/mall?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true
-    username: root
-    password: Lin199368.
-
-# MD5加密盐
-system:
-  salt: zhangdapao
+    active: prod
