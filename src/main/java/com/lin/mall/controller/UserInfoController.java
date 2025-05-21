@@ -1,6 +1,7 @@
 package com.lin.mall.controller;
 
 import com.lin.mall.entity.UserInfo;
+import com.lin.mall.entity.bo.UserLoginBo;
 import com.lin.mall.entity.bo.UserRegisterBo;
 import com.lin.mall.enums.ResponseStatusEnum;
 import com.lin.mall.service.IUserInfoService;
@@ -46,7 +47,16 @@ public class UserInfoController {
     @PostMapping("/register")
     public Result<String> register(@RequestBody UserRegisterBo userRegisterBo) {
         iuserInfoService.register(userRegisterBo);
-        return Result.success("24");
+        return Result.ok();
+    }
+
+    /**
+     * 注册
+     */
+    @PostMapping("/login")
+    public Result<String> login(@RequestBody UserLoginBo userLoginBo) {
+        String token = iuserInfoService.login(userLoginBo);
+        return Result.success(token);
     }
 
 }

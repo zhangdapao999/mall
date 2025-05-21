@@ -2,6 +2,7 @@ package com.lin.mall.service;
 
 import com.lin.mall.entity.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lin.mall.entity.bo.UserLoginBo;
 import com.lin.mall.entity.bo.UserRegisterBo;
 
 /**
@@ -26,4 +27,11 @@ public interface IUserInfoService extends IService<UserInfo> {
      * @return true:不存在,可注册 false:已存在,不可注册
      */
     Boolean checkUsernameExist(String username);
+
+    /**
+     * 用户登录
+     * @param userLoginBo 登录信息
+     * @return token
+     */
+    String login(UserLoginBo userLoginBo);
 }

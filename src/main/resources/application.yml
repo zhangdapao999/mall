@@ -1,4 +1,9 @@
 # 数据库连接
 spring:
   profiles:
-    active: prod
+    active: dev
+# 系统配置
+
+system:
+  salt: mall
+  defaultAvatar: https://b0.bdstatic.com/42ad6512f92cb1e13d7e5c7759d0c8ed.jpg@h_1280
