@@ -15,7 +15,9 @@ public enum ResponseStatusEnum {
 
     // 请求参数代码
     PARAM_MISSING(4001, "缺少必要的请求参数"),
-    ;
+
+    // 系统错误,
+    SYSTEM_ERROR(500, "系统异常,请联系管理员");
 
     final Integer code;
     final String message;

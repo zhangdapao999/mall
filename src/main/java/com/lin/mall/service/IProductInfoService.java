@@ -2,6 +2,7 @@ package com.lin.mall.service;
 
 import com.lin.mall.entity.ProductInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lin.mall.entity.bo.ProductModifyBo;
 
 /**
  * <p>
@@ -13,4 +14,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IProductInfoService extends IService<ProductInfo> {
 
+    /**
+     * 新增/修改商品信息
+     */
+    void modify(ProductModifyBo productModifyBo);
 }

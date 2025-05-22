@@ -2,6 +2,7 @@ package com.lin.mall.service;
 
 import com.lin.mall.entity.OrderInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lin.mall.entity.bo.CreateOrderBo;
 
 /**
  * <p>
@@ -13,4 +14,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IOrderInfoService extends IService<OrderInfo> {
 
+    /**
+     * 创建订单
+     */
+    void createOrder(CreateOrderBo createOrderBo);
 }

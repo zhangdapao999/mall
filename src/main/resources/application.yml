@@ -1,7 +1,7 @@
 # 数据库连接
 spring:
   profiles:
-    active: prod
+    active: dev
   data:
     redis:
       host: 1.14.71.202
@@ -16,8 +16,11 @@ spring:
           min-idle: 2
 
 # 系统配置
-
 system:
   salt: mall
   defaultAvatar: https://b0.bdstatic.com/42ad6512f92cb1e13d7e5c7759d0c8ed.jpg@h_1280
 
+# mybatis配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

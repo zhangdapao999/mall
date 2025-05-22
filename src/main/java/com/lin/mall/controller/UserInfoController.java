@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 public class UserInfoController {
 
     @Autowired
-    private IUserInfoService iuserInfoService;
+    private IUserInfoService userInfoService;
 
     /**
      * 查询用户名是否存在
@@ -36,7 +36,7 @@ public class UserInfoController {
         if (StringUtils.isBlank(username)) {
             return Result.error(ResponseStatusEnum.PARAM_MISSING);
         }
-        Boolean isExist = iuserInfoService.checkUsernameExist(username);
+        Boolean isExist = userInfoService.checkUsernameExist(username);
         return isExist ? Result.ok() : Result.error(ResponseStatusEnum.USERNAME_EXIST);
     }
 
@@ -46,7 +46,7 @@ public class UserInfoController {
      */
     @PostMapping("/register")
     public Result<String> register(@RequestBody UserRegisterBo userRegisterBo) {
-        iuserInfoService.register(userRegisterBo);
+        userInfoService.register(userRegisterBo);
         return Result.ok();
     }
 
@@ -55,7 +55,7 @@ public class UserInfoController {
      */
     @PostMapping("/login")
     public Result<String> login(@RequestBody UserLoginBo userLoginBo) {
-        String token = iuserInfoService.login(userLoginBo);
+        String token = userInfoService.login(userLoginBo);
         return Result.success(token);
     }
 
