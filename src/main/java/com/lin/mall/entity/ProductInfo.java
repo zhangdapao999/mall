@@ -37,7 +37,7 @@ public class ProductInfo implements Serializable {
     private BigDecimal price;
 
     @ApiModelProperty("库存")
-    private String inventory;
+    private Integer inventory;
 
     @ApiModelProperty("0:正常 1:已删除")
     private Integer isDelete;

@@ -17,5 +17,5 @@ public interface IOrderInfoService extends IService<OrderInfo> {
     /**
      * 创建订单
      */
-    void createOrder(CreateOrderBo createOrderBo);
+    void createOrder(CreateOrderBo createOrderBo, String token);
 }

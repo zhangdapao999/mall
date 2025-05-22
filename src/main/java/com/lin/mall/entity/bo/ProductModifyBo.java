@@ -20,6 +20,6 @@ public class ProductModifyBo {
     private BigDecimal price;
 
     @ApiModelProperty("库存")
-    private String inventory;
+    private Integer inventory;
 
 }

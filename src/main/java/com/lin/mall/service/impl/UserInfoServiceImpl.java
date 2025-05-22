@@ -105,7 +105,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         }
         // 生成token todo 现阶段用uuid,redis缓存5分钟做过期,后面整合jwt
         String token = UUID.randomUUID().toString();
-        redisUtil.set(String.format(RedisKey.USER_TOKEN, userInfo.getId()), token, RedisExpireTime.ONE_DAY);
+        redisUtil.set(String.format(RedisKey.USER_TOKEN, token), userInfo.getId(), RedisExpireTime.ONE_DAY);
         return token;
     }
 }
