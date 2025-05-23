@@ -1,7 +1,7 @@
 # 数据库连接
 spring:
   profiles:
-    active: dev
+    active: prod
   data:
     redis:
       host: 1.14.71.202
