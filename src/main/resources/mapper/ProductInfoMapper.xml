@@ -2,4 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lin.mall.mapper.ProductInfoMapper">
 
+    <select id="queryList" resultType="com.lin.mall.entity.vo.ProductListVo">
+        select *
+        from product_info
+        where is_delete = 0
+        <where>
+            <if test="productListBo.keyword != null and productListBo.keyword !=''">
+                and product_name like CONCAT('%', #{productListBo.keyword}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>

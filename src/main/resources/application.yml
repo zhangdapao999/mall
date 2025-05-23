@@ -1,7 +1,7 @@
 # 数据库连接
 spring:
   profiles:
-    active: prod
+    active: dev
   data:
     redis:
       host: 1.14.71.202
@@ -14,13 +14,20 @@ spring:
           max-wait: -1ms
           max-idle: 8
           min-idle: 2
-
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
 # 系统配置
 system:
   salt: mall
   defaultAvatar: https://b0.bdstatic.com/42ad6512f92cb1e13d7e5c7759d0c8ed.jpg@h_1280
 
-# mybatis配置
+# mybatis日志打印
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com.baomidou.mybatisplus: debug
+    com.lim.mall.mapper: debug  # 替换为你的 mapper 包路径
